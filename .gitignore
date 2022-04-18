@@ -1,5 +1,6 @@
 # Ignore everything in server
 server/*
+server/src/.env
 
 # Except for
 !server/src
