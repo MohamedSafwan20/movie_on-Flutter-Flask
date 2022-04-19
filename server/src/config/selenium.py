@@ -3,6 +3,12 @@ from selenium import webdriver
 
 
 def initialize_selenium():
-    os.environ["PATH"] = os.environ["SELENIUM_PATH"]
-    driver = webdriver.Chrome(os.environ["SELENIUM_PATH"])
+    option = webdriver.ChromeOptions()
+    option.binary_location = os.environ["BROWSER_PATH"]
+
+    driver = webdriver.Chrome(
+        executable_path=os.environ["SELENIUM_DRIVER_PATH"], chrome_options=option)
+
+    driver.get(os.environ["MOVIE_WEBSITE_URL"])
+
     return driver

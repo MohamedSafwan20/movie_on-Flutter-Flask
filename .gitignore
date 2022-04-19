@@ -1,4 +1,5 @@
 # Ignore everything in server
+.git
 server/*
 server/src/.env
 
