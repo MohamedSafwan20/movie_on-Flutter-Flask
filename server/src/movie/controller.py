@@ -1,8 +1,7 @@
 from msilib.schema import Error
-import os
 
-from flask import jsonify
 from config.selenium import initialize_selenium
+from flask import jsonify
 
 
 class MovieController:
