@@ -15,14 +15,6 @@ class _MovieListItemState extends State<MovieListItem> {
       padding: const EdgeInsets.only(bottom: 40.0),
       child: Stack(
         children: [
-          // Container(
-          //   width: 50,
-          //   height: 50,
-          //   decoration: BoxDecoration(
-          //     shape: BoxShape.circle,
-          //     color: Colors.red
-          //   ),
-          // ),
           Align(
             alignment: Alignment.center,
             child: Container(
@@ -52,7 +44,7 @@ class _MovieListItemState extends State<MovieListItem> {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             const Text(
-                              "Movie title",
+                              "Movie",
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w600),
                             ),
@@ -62,7 +54,7 @@ class _MovieListItemState extends State<MovieListItem> {
                                 textDirection: TextDirection.rtl,
                                 child: Container(
                                   height: 30,
-                                  margin: EdgeInsets.only(top: 20),
+                                  margin: const EdgeInsets.only(top: 20),
                                   child: ElevatedButton.icon(
                                     onPressed: () {},
                                     icon: const Icon(
@@ -91,6 +83,16 @@ class _MovieListItemState extends State<MovieListItem> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: PRIMARY_VARIANT_COLOR),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              width: 50,
+              height: 50,
+              transform: Matrix4.translationValues(0.0, -35.0, 0.0),
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle, color: PRIMARY_COLOR),
             ),
           ),
         ],
