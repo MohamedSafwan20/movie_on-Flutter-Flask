@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:movie_on/config/colors.dart';
-import 'package:movie_on/ui/widgets/movie_list.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_on/cubits/home_cubit/home_cubit.dart';
 
-class HomePage extends StatefulWidget {
+import '../../config/colors.dart';
+import '../widgets/movie_list.dart';
+
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
+    BlocProvider.of<HomeCubit>(context).fetchMovies();
+
     return Scaffold(
       backgroundColor: PRIMARY_COLOR,
       body: SafeArea(
