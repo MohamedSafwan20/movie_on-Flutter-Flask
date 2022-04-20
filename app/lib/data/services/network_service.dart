@@ -1,11 +1,19 @@
+import 'dart:convert';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkService {
   final _BASE_URL = dotenv.get("API_URL");
 
-  void fetchMovies() async {
-    http.Response res = await http.get(Uri.parse("${_BASE_URL}/movies"));
-    print(res.body);
+  Future<List> fetchMovies() async {
+    http.Response res = await http.get(Uri.parse("$_BASE_URL/movies"));
+    final data = jsonDecode(res.body);
+    if (data["status"] != 1) {
+      throw Exception(data["msg"]);
+    }
+    List movies = data["data"];
+
+    return movies;
   }
 }

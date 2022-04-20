@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:movie_on/config/colors.dart';
 import 'package:movie_on/config/routes.dart';
 
-class MovieListItem extends StatefulWidget {
-  const MovieListItem({Key? key}) : super(key: key);
+class MovieListItem extends StatelessWidget {
+  const MovieListItem({Key? key, required this.name, required this.image})
+      : super(key: key);
 
-  @override
-  State<MovieListItem> createState() => _MovieListItemState();
-}
+  final String name;
+  final String image;
 
-class _MovieListItemState extends State<MovieListItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,7 +29,7 @@ class _MovieListItemState extends State<MovieListItem> {
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(16),
                           child: Image.network(
-                            "https://picsum.photos/200/300",
+                            image,
                           )),
                     ),
                   ),
@@ -44,9 +43,9 @@ class _MovieListItemState extends State<MovieListItem> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            const Text(
-                              "Movie",
-                              style: TextStyle(
+                            Text(
+                              name,
+                              style: const TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w600),
                             ),
                             Align(

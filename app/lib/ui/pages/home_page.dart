@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_on/cubits/home_cubit/home_cubit.dart';
+import 'package:movie_on/data/models/movie_model.dart';
+import 'package:movie_on/ui/widgets/loading.dart';
 
 import '../../config/colors.dart';
 import '../widgets/movie_list.dart';
@@ -88,7 +90,34 @@ class HomePage extends StatelessWidget {
                 ])),
               ),
             ),
-            const MovieList()
+            BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+                if (state is HomeError) {
+                  return Container(
+                    width: 220,
+                    padding: const EdgeInsets.symmetric(vertical: 70.0),
+                    child: const Text(
+                      "Something went wrong",
+                      style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w800,
+                          color: DISABLED_COLOR),
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                }
+
+                if (state is HomeLoaded) {
+                  List<Movie> movies = (state).movies;
+
+                  return MovieList(movies: movies);
+                }
+
+                return const Loading(
+                  size: 30,
+                );
+              },
+            )
           ],
         ),
       ),
