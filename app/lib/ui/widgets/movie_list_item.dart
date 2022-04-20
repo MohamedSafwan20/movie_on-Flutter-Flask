@@ -38,40 +38,41 @@ class _MovieListItemState extends State<MovieListItem> {
                           "https://picsum.photos/200/300",
                         )),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20.0, vertical: 25),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "MOvie title sdfs df df sdf ",
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                              fontSize: 19, fontWeight: FontWeight.w600),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: ElevatedButton.icon(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.visibility_outlined,
-                                size: 20,
-                                color: Colors.black,
-                              ),
-                              label: Text(
-                                "WATCH",
-                                style: TextStyle(color: Colors.black),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: SECONDARY_COLOR,
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 25),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "MOvie title sdfs df df sdf ",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w600),
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: ElevatedButton.icon(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.visibility_outlined,
+                                  size: 20,
+                                  color: Colors.black,
+                                ),
+                                label: Text(
+                                  "WATCH",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  primary: SECONDARY_COLOR,
+                                ),
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],
