@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_on/config/colors.dart';
+import 'package:movie_on/config/routes.dart';
 
 class MovieListItem extends StatefulWidget {
   const MovieListItem({Key? key}) : super(key: key);
@@ -56,7 +57,10 @@ class _MovieListItemState extends State<MovieListItem> {
                                   height: 30,
                                   margin: const EdgeInsets.only(top: 20),
                                   child: ElevatedButton.icon(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, MOVIE_DETAILS_ROUTE);
+                                    },
                                     icon: const Icon(
                                       Icons.visibility_outlined,
                                       size: 20,
