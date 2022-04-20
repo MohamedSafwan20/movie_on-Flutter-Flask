@@ -27,51 +27,62 @@ class _MovieListItemState extends State<MovieListItem> {
             alignment: Alignment.center,
             child: Container(
               width: 340,
-              height: 200,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: Image.network(
-                          "https://picsum.photos/200/300",
-                        )),
+                  SizedBox(
+                    height: 200,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.network(
+                            "https://picsum.photos/200/300",
+                          )),
+                    ),
                   ),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 25),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "MOvie title sdfs df df sdf ",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w600),
-                          ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: ElevatedButton.icon(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.visibility_outlined,
-                                  size: 20,
-                                  color: Colors.black,
-                                ),
-                                label: Text(
-                                  "WATCH",
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: SECONDARY_COLOR,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(minHeight: 150),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            const Text(
+                              "Movie title",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Container(
+                                  height: 30,
+                                  margin: EdgeInsets.only(top: 20),
+                                  child: ElevatedButton.icon(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.visibility_outlined,
+                                      size: 20,
+                                      color: Colors.black,
+                                    ),
+                                    label: const Text(
+                                      "WATCH",
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                        primary: SECONDARY_COLOR,
+                                        shape: const StadiumBorder()),
+                                  ),
                                 ),
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   )

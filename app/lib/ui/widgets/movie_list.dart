@@ -13,6 +13,7 @@ class _MovieListState extends State<MovieList> {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
           itemCount: 15,
           itemBuilder: (context, index) {
             return const MovieListItem();
