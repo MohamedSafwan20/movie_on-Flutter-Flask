@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_on/config/colors.dart';
 import 'package:movie_on/ui/router.dart';
 
 void main() {
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(
+          textTheme: Theme.of(context).textTheme.apply(
+                bodyColor: TEXT_COLOR,
+                displayColor: TEXT_COLOR,
+              )),
       onGenerateRoute: appRouter.generateRoute,
     );
   }
