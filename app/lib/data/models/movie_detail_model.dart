@@ -3,7 +3,7 @@ class MovieDetail {
   String image;
   String description;
   String genres;
-  String streamingLinks;
+  List streamingLinks;
 
   MovieDetail.name(this.name, this.image, this.description, this.genres,
       this.streamingLinks);
@@ -13,5 +13,5 @@ class MovieDetail {
         image = json['image'],
         description = json['description'],
         genres = json['genres'],
-        streamingLinks = json['streamingLinks'];
+        streamingLinks = json['links'];
 }

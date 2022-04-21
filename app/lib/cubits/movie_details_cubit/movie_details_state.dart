@@ -4,3 +4,11 @@ part of 'movie_details_cubit.dart';
 abstract class MovieDetailsState {}
 
 class MovieDetailsInitial extends MovieDetailsState {}
+
+class MovieDetailsLoaded extends MovieDetailsState {
+  final MovieDetail movie;
+
+  MovieDetailsLoaded({required this.movie});
+}
+
+class MovieDetailsError extends MovieDetailsState {}
