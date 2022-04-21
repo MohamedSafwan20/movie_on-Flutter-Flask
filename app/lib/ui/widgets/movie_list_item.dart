@@ -44,7 +44,9 @@ class MovieListItem extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text(
-                              name,
+                              name.length > 50
+                                  ? "${name.substring(0, 50)}..."
+                                  : name,
                               style: const TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w600),
                             ),
@@ -58,7 +60,9 @@ class MovieListItem extends StatelessWidget {
                                   child: ElevatedButton.icon(
                                     onPressed: () {
                                       Navigator.pushNamed(
-                                          context, MOVIE_DETAILS_ROUTE);
+                                          context, MOVIE_DETAILS_ROUTE, arguments:  {
+                                        "title": name
+                                      });
                                     },
                                     icon: const Icon(
                                       Icons.visibility_outlined,

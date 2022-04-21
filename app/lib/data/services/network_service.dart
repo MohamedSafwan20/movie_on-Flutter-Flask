@@ -9,10 +9,26 @@ class NetworkService {
   Future<List> fetchMovies() async {
     http.Response res = await http.get(Uri.parse("$_BASE_URL/movies"));
     final data = jsonDecode(res.body);
+
     if (data["status"] != 1) {
       throw Exception(data["msg"]);
     }
+
     List movies = data["data"];
+
+    return movies;
+  }
+
+  void fetchMovie({required String title}) async {
+    http.Response res =
+        await http.get(Uri.parse("$_BASE_URL/movie?title=$title"));
+    final data = jsonDecode(res.body);
+
+    if (data["status"] != 1) {
+      throw Exception(data["msg"]);
+    }
+
+    List links = data["data"];
 
     return movies;
   }

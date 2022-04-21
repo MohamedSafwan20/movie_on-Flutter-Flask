@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_on/config/colors.dart';
+import 'package:movie_on/cubits/movie_details_cubit/movie_details_cubit.dart';
 import 'package:movie_on/ui/widgets/app_bar.dart';
 
 class MovieDetailsPage extends StatefulWidget {
-  const MovieDetailsPage({Key? key}) : super(key: key);
+  const MovieDetailsPage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
 
   @override
   State<MovieDetailsPage> createState() => _MovieDetailsPageState();
@@ -12,6 +16,8 @@ class MovieDetailsPage extends StatefulWidget {
 class _MovieDetailsPageState extends State<MovieDetailsPage> {
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<MovieDetailsCubit>(context).fetchMovie(title: widget.title);
+
     return Scaffold(
       backgroundColor: PRIMARY_COLOR,
       body: SafeArea(
