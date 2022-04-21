@@ -36,6 +36,29 @@ class MovieController:
 
             if movieTitle == title:
                 movie.click()
+
+                movie = {}
+
+                # MOVIE TITLE
+                movie["title"] = title
+
+                # MOVIE IMG
+                movieImg = driver.find_element_by_css_selector(
+                    ".attachment-post-thumbnail.size-post-thumbnail.wp-post-image")
+                movie["image"] = movieImg.get_attribute("src")
+
+                # MOVIE DESCRIPTION
+                movieDesc = driver.find_elements_by_css_selector(
+                    ".entry-content>p")
+                movie["description"] = movieDesc[2].text
+
+                # MOVIE GENRE
+                movieGenre = driver.find_elements_by_css_selector(
+                    ".entry-content>p")
+                splittedGenre = movieGenre[1].text.split("Genres:", 2)[1]
+                movie["genre"] = splittedGenre.split("\n")[0].strip()
+
+                # MOVIE STREAMING LINKS
                 movieLinksList = []
                 movieContainerList = driver.find_elements_by_css_selector(
                     '.entry-content>p>a')
@@ -43,6 +66,8 @@ class MovieController:
                     if movieContainer.get_attribute("rel") == "nofollow noopener":
                         movieLinksList.append(
                             movieContainer.get_attribute("href"))
-                return movieLinksList
+                movie["links"] = movieLinksList
+
+                return movie
 
         raise Exception("Movie not found")
