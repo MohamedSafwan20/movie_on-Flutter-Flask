@@ -94,11 +94,11 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                               ), //BoxShadow
                               BoxShadow(
                                 color: PRIMARY_COLOR,
-                            offset: Offset(0.0, 0.0),
-                            blurRadius: 0.0,
-                            spreadRadius: 0.0,
-                          ), //BoxShadow
-                        ]),
+                                offset: Offset(0.0, 0.0),
+                                blurRadius: 0.0,
+                                spreadRadius: 0.0,
+                              ), //BoxShadow
+                            ]),
                         margin: const EdgeInsets.symmetric(vertical: 40.0),
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
@@ -144,57 +144,39 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       ),
                     ),
                     Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 40.0, vertical: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
+                          children:
+                              movie.streamingLinks.asMap().entries.map((entry) {
+                            int index = entry.key;
+                            String link = entry.value;
+
+                            return Container(
                               margin: const EdgeInsets.all(10),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children: [
                                   Padding(
-                                    padding: EdgeInsets.only(bottom: 8.0),
+                                    padding: const EdgeInsets.only(bottom: 8.0),
                                     child: Text(
-                                      "Server 1",
-                                      style: TextStyle(
+                                      "Server ${index + 1}",
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16),
                                     ),
                                   ),
                                   Text(
-                                    "Kallan D’Souza (2022) Malayalam Full Movie Watch Online Free *Rip File*",
-                                    style: TextStyle(
+                                    link,
+                                    style: const TextStyle(
                                         color: SECONDARY_COLOR,
                                         decoration: TextDecoration.underline),
                                   ),
                                 ],
                               ),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.all(10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Padding(
-                                    padding: EdgeInsets.only(bottom: 8.0),
-                                    child: Text(
-                                      "Server 2",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 16),
-                                    ),
-                                  ),
-                                  Text(
-                                    "Kallan D’Souza (2022) Malayalam Full Movie Watch Online Free *Rip File*",
-                                    style: TextStyle(
-                                        color: SECONDARY_COLOR,
-                                        decoration: TextDecoration.underline),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                            );
+                          }).toList(),
                         )),
                   ],
                 );
