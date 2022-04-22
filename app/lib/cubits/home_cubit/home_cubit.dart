@@ -12,9 +12,19 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit({required this.repository}) : super(HomeInitial());
 
   void fetchMovies() {
-    repository
-        .fetchMovies()
-        .then((movies) => emit(HomeLoaded(movies: movies)))
-        .catchError((e) => emit(HomeError()));
+    repository.fetchMovies().then((movies) {
+      return emit(HomeLoaded(movies: movies));
+    }).catchError((e) => emit(HomeError()));
+  }
+
+  List search({required List list, required String keyword}) {
+    final filteredList = list
+        .where((movie) => movie.name
+            .trim()
+            .toUpperCase()
+            .startsWith(keyword.trim().toUpperCase()))
+        .toList();
+
+    return filteredList;
   }
 }

@@ -7,4 +7,9 @@ class Movie {
   Movie.fromJson(Map<String, dynamic> json)
       : name = json['title'],
         image = json['img'];
+
+  @override
+  String toString() {
+    return "name - ${this.name}, image - ${this.image}";
+  }
 }
