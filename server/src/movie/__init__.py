@@ -24,6 +24,6 @@ def getMovieByTitle():
 
     try:
         res = MovieController.getMovieByTitle(movieTitle)
-        return jsonify({"status": 1, "links": res}), 200
+        return jsonify({"status": 1, "data": res}), 200
     except Exception as e:
         return jsonify({"status": 0, "msg": str(e)})

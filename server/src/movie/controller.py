@@ -39,8 +39,8 @@ class MovieController:
 
                 movie = {}
 
-                # MOVIE TITLE
-                movie["title"] = title
+                # MOVIE NAME
+                movie["name"] = title
 
                 # MOVIE IMG
                 movieImg = driver.find_element_by_css_selector(
@@ -52,11 +52,11 @@ class MovieController:
                     ".entry-content>p")
                 movie["description"] = movieDesc[2].text
 
-                # MOVIE GENRE
+                # MOVIE GENRES
                 movieGenre = driver.find_elements_by_css_selector(
                     ".entry-content>p")
                 splittedGenre = movieGenre[1].text.split("Genres:", 2)[1]
-                movie["genre"] = splittedGenre.split("\n")[0].strip()
+                movie["genres"] = splittedGenre.split("\n")[0].strip()
 
                 # MOVIE STREAMING LINKS
                 movieLinksList = []
