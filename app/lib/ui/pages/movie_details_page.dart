@@ -79,18 +79,21 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        decoration: const BoxDecoration(boxShadow: [
-                          BoxShadow(
-                            color: PRIMARY_VARIANT_COLOR,
-                            offset: Offset(
-                              10,
-                              10,
-                            ),
-                            blurRadius: 40,
-                            spreadRadius: 10,
-                          ), //BoxShadow
-                          BoxShadow(
-                            color: PRIMARY_COLOR,
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: PRIMARY_VARIANT_COLOR,
+                                offset: Offset(
+                                  10,
+                                  10,
+                                ),
+                                blurRadius: 40,
+                                spreadRadius: 10,
+                              ), //BoxShadow
+                              BoxShadow(
+                                color: PRIMARY_COLOR,
                             offset: Offset(0.0, 0.0),
                             blurRadius: 0.0,
                             spreadRadius: 0.0,
@@ -98,7 +101,7 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                         ]),
                         margin: const EdgeInsets.symmetric(vertical: 40.0),
                         child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(20),
                             child: Image.network(
                               movie.image,
                               width: 240,
@@ -115,20 +118,21 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                           children: [
                             Text(
                               movie.name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 22, fontWeight: FontWeight.w500),
                             ),
                             Text(
                               "Genres: ${movie.genres}",
-                              style: TextStyle(fontWeight: FontWeight.w500),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w500),
                             ),
                           ],
                         )),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 40.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 40.0),
                       child: Text(
                         movie.description,
-                        style: TextStyle(height: 1.3),
+                        style: const TextStyle(height: 1.3),
                       ),
                     ),
                     const Padding(
