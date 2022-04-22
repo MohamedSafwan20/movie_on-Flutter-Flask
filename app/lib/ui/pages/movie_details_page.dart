@@ -5,6 +5,7 @@ import 'package:movie_on/cubits/movie_details_cubit/movie_details_cubit.dart';
 import 'package:movie_on/data/models/movie_detail_model.dart';
 import 'package:movie_on/ui/widgets/app_bar.dart';
 import 'package:movie_on/ui/widgets/loading.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MovieDetailsPage extends StatefulWidget {
   const MovieDetailsPage({Key? key, required this.title}) : super(key: key);
@@ -80,7 +81,6 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                       alignment: Alignment.center,
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.red,
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: const [
                               BoxShadow(
@@ -167,11 +167,14 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                                           fontSize: 16),
                                     ),
                                   ),
-                                  Text(
-                                    link,
-                                    style: const TextStyle(
-                                        color: SECONDARY_COLOR,
-                                        decoration: TextDecoration.underline),
+                                  InkWell(
+                                    onTap: () => launch(link),
+                                    child: Text(
+                                      link,
+                                      style: const TextStyle(
+                                          color: SECONDARY_COLOR,
+                                          decoration: TextDecoration.underline),
+                                    ),
                                   ),
                                 ],
                               ),
