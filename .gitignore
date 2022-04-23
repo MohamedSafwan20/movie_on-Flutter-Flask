@@ -2,6 +2,7 @@
 .git
 server/*
 server/src/.env
+server/src/.env.local
 
 # Except for
 !server/src

@@ -1,7 +1,4 @@
-from msilib.schema import Error
-
 from config.selenium import initialize_selenium
-from flask import jsonify
 
 
 class MovieController:
