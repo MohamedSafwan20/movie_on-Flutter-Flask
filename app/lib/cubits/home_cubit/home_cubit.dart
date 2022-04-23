@@ -22,7 +22,7 @@ class HomeCubit extends Cubit<HomeState> {
         .where((movie) => movie.name
             .trim()
             .toUpperCase()
-            .startsWith(keyword.trim().toUpperCase()))
+            .contains(keyword.trim().toUpperCase()))
         .toList();
 
     return filteredList;
