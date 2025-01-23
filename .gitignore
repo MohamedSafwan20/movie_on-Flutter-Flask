@@ -3,6 +3,13 @@
 server/*
 server/src/.env
 server/src/.env.local
+server_fastapi/*
+server_fastapi/src/.env
+server_fastapi/src/.env.local
 
 # Except for
 !server/src
+!server_fastapi/src
+
+__pycache__
+.vscode
